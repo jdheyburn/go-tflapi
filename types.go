@@ -27,7 +27,7 @@ type StopPointAPIResponse struct {
 	CommonName           string                 `json:"commonName"`
 	PlaceType            string                 `json:"placeType"`
 	AdditionalProperties []AdditionalProperties `json:"additionalProperties"`
-	// Children             string           `json:"children"`             // TODO define
+	Children             []StopPointAPIResponse `json:"children"`
 	// Lat                  float64          `json:"lat"`
 	// Lon                  float64          `json:"lon"`
 }
