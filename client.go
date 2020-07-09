@@ -58,6 +58,11 @@ func (c *TflClient) parseOptions(opts ...Option) error {
 	return nil
 }
 
+type Api interface {
+	SearchStopPoints(string) (*[]EntityMatchedStop, error)
+	SearchStopPointsWithModes(string, []string) (*[]EntityMatchedStop, error)
+}
+
 // Client holds information necessary to make a request to your API
 type TflClient struct {
 	Client  *http.Client
