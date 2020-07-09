@@ -19,7 +19,6 @@ const (
 	searchPath         string = "Search"
 )
 
-
 // Option is a functional option for configuring the API client
 type Option func(*TflClient) error
 
@@ -61,6 +60,7 @@ func (c *TflClient) parseOptions(opts ...Option) error {
 type Api interface {
 	SearchStopPoints(string) (*[]EntityMatchedStop, error)
 	SearchStopPointsWithModes(string, []string) (*[]EntityMatchedStop, error)
+	GetStopPointForID(string) (*StopPointAPIResponse, error)
 }
 
 // Client holds information necessary to make a request to your API

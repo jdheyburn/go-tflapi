@@ -22,14 +22,22 @@ type StopPointAPIResponse struct {
 	// Lines                []LineIdentifier `json:"lines"`          // TODO define Lines
 	// LineGroup            string           `json:"lineGroup"`      // TODO define LineGroup
 	// LineModeGroups       string           `json:"lineModeGroups"` // TODO define LineModeGroup
-	Status     bool   `json:"status"`
-	ID         string `json:"id"`
-	CommonName string `json:"commonName"`
-	PlaceType  string `json:"placeType"`
-	// AdditionalProperties string           `json:"additionalProperties"` // TODO define
+	Status               bool                   `json:"status"`
+	ID                   string                 `json:"id"`
+	CommonName           string                 `json:"commonName"`
+	PlaceType            string                 `json:"placeType"`
+	AdditionalProperties []AdditionalProperties `json:"additionalProperties"`
 	// Children             string           `json:"children"`             // TODO define
 	// Lat                  float64          `json:"lat"`
 	// Lon                  float64          `json:"lon"`
+}
+
+type AdditionalProperties struct {
+	RespType        string `json:"$type"`
+	Category        string `json:"category"`
+	Key             string `json:"key"`
+	SourceSystemKey string `json:"sourceSystemKey"`
+	Value           string `json:"value"`
 }
 
 // LineIdentifier represents
