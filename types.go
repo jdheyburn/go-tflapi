@@ -130,5 +130,5 @@ type FareTap struct {
 // FareTapDetails represents Tfl.Api.Presentation.Entities.JourneyPlanner.FareTapDetails
 type FareTapDetails struct {
 	ModeType     string    `json:"modeType"`
-	TapTimestamp time.Time `json:"tagTimestamp"`
+	TapTimestamp time.Time `json:"tapTimestamp"`
 }
