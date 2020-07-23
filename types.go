@@ -23,6 +23,7 @@ type StopPointAPIResponse struct {
 	Status               bool                   `json:"status"`
 	ID                   string                 `json:"id"`
 	StationNaptan        string                 `json:"stationNaptan"`
+	HubNaptanCode        string                 `json:"hubNaptanCode"`
 	CommonName           string                 `json:"commonName"`
 	PlaceType            string                 `json:"placeType"`
 	AdditionalProperties []AdditionalProperties `json:"additionalProperties"`
