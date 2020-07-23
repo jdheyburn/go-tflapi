@@ -22,6 +22,7 @@ type StopPointAPIResponse struct {
 	// LineModeGroups       string           `json:"lineModeGroups"` // TODO define LineModeGroup
 	Status               bool                   `json:"status"`
 	ID                   string                 `json:"id"`
+	StationNaptan        string                 `json:"stationNaptan"`
 	CommonName           string                 `json:"commonName"`
 	PlaceType            string                 `json:"placeType"`
 	AdditionalProperties []AdditionalProperties `json:"additionalProperties"`
