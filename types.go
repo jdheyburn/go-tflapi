@@ -132,3 +132,78 @@ type FareTapDetails struct {
 	ModeType     string `json:"modeType"`
 	TapTimestamp string `json:"tapTimestamp"`
 }
+
+// FaresSection represents Tfl.Api.Presentation.Entities.Fares.FaresSection
+type FaresSection struct {
+	Header   string        `json:"header"`
+	Index    int        `json:"index"`
+	Journey  FaresJourney  `json:"journey"`
+	Rows     []FareDetails `json:"rows"`
+	Messages []Message     `json:"messages"`
+}
+
+// FaresJourney represents Tfl.Api.Presentation.Entities.Fares.Journey
+type FaresJourney struct {
+	FromStation FareStation `json:"fromStation"`
+	ToStation   FareStation `json:"toStation"`
+}
+
+// FareStation represents Tfl.Api.Presentation.Entities.Fares.Journey
+type FareStation struct {
+	AtcoCode     string `json:"atcoCode"`
+	CommonName   string `json:"commonName"`
+	FareCategory string `json:"fareCategory"`
+}
+
+// Message represents Tfl.Api.Presentation.Entities.Message
+type Message struct {
+	BulletOrder int    `json:"bulletOrder"`
+	Text        string `json:"messageText"`
+}
+
+// FareDetails represents Tfl.Api.Presentation.Fares.FareDetails
+type FareDetails struct {
+	StartDate               string   `json:"startDate"`
+	EndDate                 string   `json:"endDate"`
+	PassengerType           string   `json:"passengerType"`
+	ContactlessPaygOnlyFare bool     `json:"contactlessPAYGOnlyFare"`
+	From                    string   `json:"from"`
+	To                      string   `json:"to"`
+	FromStation             string   `json:"fromStation"`
+	ToStation               string   `json:"toStation"`
+	DisplayName             string   `json:"displayName"`
+	DisplayOrder            int      `json:"displayOrder"`
+	RouteDescription        string   `json:"routeDescription"`
+	SpecialFare             bool     `json:"specialFare"`
+	ThroughFare             bool     `json:"throughFare"`
+	IsTour                  bool     `json:"isTour"`
+	TicketsAvailable        []Ticket `json:"ticketsAvailable"`
+}
+
+// Ticket represents Tfl.Api.Presentation.Entities.Fares.Ticket
+type Ticket struct {
+	PassengerType string     `json:"passengerType"`
+	TicketType    TicketType `json:"ticketType"`
+	TicketTime    TicketTime `json:"ticketTime"`
+	Cost          string     `json:"cost"`
+	Description   string     `json:"description"`
+	Mode          string     `json:"mode"`
+	DisplayOrder  int        `json:"displayOrder"`
+}
+
+// TicketType represents Tfl.Api.Presentation.Entities.Fares.TicketType
+type TicketType struct {
+	Type        string `json:"type"`
+	Description string `json:"description"`
+}
+
+// TicketTime represents Tfl.Api.Presentation.Entities.Fares.TicketTime
+type TicketTime struct {
+	Type        string `json:"type"`
+	Description string `json:"description"`
+}
+
+// SingleFareFinderInput is used as the input object for SingleFareFinder
+type SingleFareFinderInput struct {
+	From, To string
+}
