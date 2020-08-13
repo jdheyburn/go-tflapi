@@ -11,6 +11,8 @@ import (
 	"path/filepath"
 	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 const (
@@ -50,6 +52,8 @@ func TflAPIClientStub() func() {
 			resp = getTestDataFileContents("Should_retrieve_no_matches_for_invalid_searchTerm.json")
 		case fmt.Sprintf("/Journey/JourneyResults/1001089/to/1000173?app_id=%s&app_key=%s&date=20190401&mode=%s&time=0715", appID, appKey, "national-rail%2Ctube"):
 			resp = getTestDataFileContents("Should_retrieve_journey_planner_itinerary_for_valid_search.json")
+		case fmt.Sprintf("/StopPoint/940GZZLUCYF/FareTo/910GPURLEYO?app_id=%s&app_key=%s", appID, appKey):
+			resp = getTestDataFileContents("single_fare_finder.json")
 		}
 
 		w.Write(resp)
@@ -253,7 +257,7 @@ func TestTflAPIClient_SearchStopPointsWithModes(t *testing.T) {
 			api:  client,
 			args: args{
 				searchTerm: "London Bridge",
-				modes: []string{"national-rail", "tube"},
+				modes:      []string{"national-rail", "tube"},
 			},
 			want: &expected,
 		},
@@ -271,7 +275,6 @@ func TestTflAPIClient_SearchStopPointsWithModes(t *testing.T) {
 		})
 	}
 }
-
 
 func TestTflAPIClient_GetJourneyPlannerItinerary(t *testing.T) {
 
@@ -313,6 +316,52 @@ func TestTflAPIClient_GetJourneyPlannerItinerary(t *testing.T) {
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("TflAPIClient.GetJourneyPlannerItinerary() = %v, want %v", got, tt.want)
 			}
+		})
+	}
+}
+
+func TestTflClient_SingleFareFinder(t *testing.T) {
+
+	expected := []FaresSection{}
+	json.Unmarshal(getTestDataFileContents("single_fare_finder.json"), &expected)
+
+	type args struct {
+		input SingleFareFinderInput
+	}
+	tests := []struct {
+		name    string
+		api     *TflClient
+		args    args
+		want    *[]FaresSection
+		wantErr error
+	}{
+		{
+			name: "should retrieve single fare finder",
+			api:  client,
+			args: args{
+				input: SingleFareFinderInput{
+					From: "940GZZLUCYF",
+					To:   "910GPURLEYO",
+				},
+			},
+			want: &expected,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := tt.api.SingleFareFinder(tt.args.input)
+			if err != nil && tt.wantErr == nil {
+				assert.Fail(t, fmt.Sprintf(
+					"Error not expected but got one:\n"+
+						"error: %q", err),
+				)
+				return
+			}
+			if tt.wantErr != nil {
+				assert.EqualError(t, err, tt.wantErr.Error())
+				return
+			}
+			assert.Equal(t, tt.want, got)
 		})
 	}
 }

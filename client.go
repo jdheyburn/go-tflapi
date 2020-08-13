@@ -17,6 +17,7 @@ const (
 	toPath             string = "to"
 	stopPointPath      string = "StopPoint"
 	searchPath         string = "Search"
+	fareToPath         string = "FareTo"
 )
 
 // Option is a functional option for configuring the API client
@@ -61,7 +62,8 @@ type Api interface {
 	SearchStopPoints(string) (*[]EntityMatchedStop, error)
 	SearchStopPointsWithModes(string, []string) (*[]EntityMatchedStop, error)
 	GetStopPointForID(string) (*StopPointAPIResponse, error)
-	GetJourneyPlannerItinerary(JourneyPlannerQuery) (*JourneyPlannerItineraryResult, error) 
+	GetJourneyPlannerItinerary(JourneyPlannerQuery) (*JourneyPlannerItineraryResult, error)
+	SingleFareFinder(SingleFareFinderInput) (*FaresSection, error)
 }
 
 // Client holds information necessary to make a request to your API
@@ -211,6 +213,22 @@ func (c *TflClient) GetJourneyPlannerItinerary(query JourneyPlannerQuery) (*Jour
 	url := c.buildURLWithQueryParams(pathParams, queryParams)
 
 	resp := JourneyPlannerItineraryResult{}
+	if err := c.getJSON(url, &resp); err != nil {
+		return nil, err
+	}
+
+	return &resp, nil
+}
+
+// SingleFareFinder retrieves a single fare cost between two stations
+// It queries the endpoint /StopPoint/{from}/FareTo/{to}
+func (c *TflClient) SingleFareFinder(input SingleFareFinderInput) (*[]FaresSection, error) {
+
+	pathParams := []string{stopPointPath, input.From, fareToPath, input.To}
+	queryParams := &map[string]string{}
+	url := c.buildURLWithQueryParams(pathParams, queryParams)
+
+	resp := []FaresSection{}
 	if err := c.getJSON(url, &resp); err != nil {
 		return nil, err
 	}

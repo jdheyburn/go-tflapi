@@ -1,0 +1,191 @@
+[
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Fares.FaresSection, Tfl.Api.Presentation.Entities",
+    "header": "Single Fare Finder",
+    "index": 1,
+    "journey": {
+      "$type": "Tfl.Api.Presentation.Entities.Fares.Journey, Tfl.Api.Presentation.Entities",
+      "fromStation": {
+        "$type": "Tfl.Api.Presentation.Entities.Fares.FareStation, Tfl.Api.Presentation.Entities",
+        "atcoCode": "940GZZLUCYF",
+        "commonName": "Canary Wharf Underground Station",
+        "fareCategory": "All"
+      },
+      "toStation": {
+        "$type": "Tfl.Api.Presentation.Entities.Fares.FareStation, Tfl.Api.Presentation.Entities",
+        "atcoCode": "910GPURLEYO",
+        "commonName": "Purley Oaks Rail Station",
+        "fareCategory": "All"
+      }
+    },
+    "rows": [
+      {
+        "$type": "Tfl.Api.Presentation.Entities.Fares.FareDetails, Tfl.Api.Presentation.Entities",
+        "startDate": "2020-04-19T23:00:00Z",
+        "endDate": "2021-04-19T23:00:00Z",
+        "passengerType": "Adult",
+        "contactlessPAYGOnlyFare": false,
+        "from": "Canary Wharf Underground Station",
+        "to": "Purley Oaks Rail Station",
+        "fromStation": "940GZZLUCYF",
+        "toStation": "910GPURLEYO",
+        "displayName": "Default Route",
+        "displayOrder": 0,
+        "routeDescription": "Default route",
+        "specialFare": false,
+        "throughFare": false,
+        "isTour": false,
+        "ticketsAvailable": [
+          {
+            "$type": "Tfl.Api.Presentation.Entities.Fares.Ticket, Tfl.Api.Presentation.Entities",
+            "passengerType": "Adult",
+            "ticketType": {
+              "$type": "Tfl.Api.Presentation.Entities.Fares.TicketType, Tfl.Api.Presentation.Entities",
+              "type": "Pay as you go",
+              "description": "Pay as you go"
+            },
+            "ticketTime": {
+              "$type": "Tfl.Api.Presentation.Entities.Fares.TicketTime, Tfl.Api.Presentation.Entities",
+              "type": "Off Peak",
+              "description": "At all other times including public holidays."
+            },
+            "cost": "5.70",
+            "description": "Pay as you go",
+            "mode": "national-rail",
+            "displayOrder": 1,
+            "messages": []
+          },
+          {
+            "$type": "Tfl.Api.Presentation.Entities.Fares.Ticket, Tfl.Api.Presentation.Entities",
+            "passengerType": "Adult",
+            "ticketType": {
+              "$type": "Tfl.Api.Presentation.Entities.Fares.TicketType, Tfl.Api.Presentation.Entities",
+              "type": "Pay as you go",
+              "description": "Pay as you go"
+            },
+            "ticketTime": {
+              "$type": "Tfl.Api.Presentation.Entities.Fares.TicketTime, Tfl.Api.Presentation.Entities",
+              "type": "Peak",
+              "description": "Monday to Friday from 0630 to 0930 and from 1600 to 1900."
+            },
+            "cost": "8.40",
+            "description": "Pay as you go",
+            "mode": "national-rail",
+            "displayOrder": 2,
+            "messages": []
+          }
+        ],
+        "messages": []
+      }
+    ],
+    "messages": [
+      {
+        "$type": "Tfl.Api.Presentation.Entities.Message, Tfl.Api.Presentation.Entities",
+        "bulletOrder": 0,
+        "messageText": "When you pay as you go, you must touch your card on a yellow card reader at the start and end of your journey. If you do not, you may be charged a maximum fare."
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.Message, Tfl.Api.Presentation.Entities",
+        "bulletOrder": 0,
+        "messageText": "Some journeys are charged via Zone 1 irrespective of the route taken."
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.Message, Tfl.Api.Presentation.Entities",
+        "bulletOrder": 0,
+        "messageText": "Cash single and return tickets are valid for travel only on the date shown on the ticket and up to 04:29 the next day."
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.Message, Tfl.Api.Presentation.Entities",
+        "bulletOrder": 0,
+        "messageText": "Cash return fares are double the equivalent single fare. In some cases a Day Travelcard may be cheaper."
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.Message, Tfl.Api.Presentation.Entities",
+        "bulletOrder": 0,
+        "messageText": "Fares shown do not include travel on Gatwick Express, Heathrow Express or Southeastern high speed services unless stated."
+      }
+    ]
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.Fares.FaresSection, Tfl.Api.Presentation.Entities",
+    "header": "Alternate Fares",
+    "index": 2,
+    "journey": {
+      "$type": "Tfl.Api.Presentation.Entities.Fares.Journey, Tfl.Api.Presentation.Entities",
+      "fromStation": {
+        "$type": "Tfl.Api.Presentation.Entities.Fares.FareStation, Tfl.Api.Presentation.Entities",
+        "atcoCode": "940GZZLUCYF",
+        "commonName": "Canary Wharf Underground Station",
+        "fareCategory": "All"
+      },
+      "toStation": {
+        "$type": "Tfl.Api.Presentation.Entities.Fares.FareStation, Tfl.Api.Presentation.Entities",
+        "atcoCode": "910GPURLEYO",
+        "commonName": "Purley Oaks Rail Station",
+        "fareCategory": "All"
+      }
+    },
+    "rows": [
+      {
+        "$type": "Tfl.Api.Presentation.Entities.Fares.FareDetails, Tfl.Api.Presentation.Entities",
+        "startDate": "2020-04-19T23:00:00Z",
+        "endDate": "2021-04-19T23:00:00Z",
+        "passengerType": "Adult",
+        "contactlessPAYGOnlyFare": false,
+        "from": "Canary Wharf Underground Station",
+        "to": "Purley Oaks Rail Station",
+        "fromStation": "940GZZLUCYF",
+        "toStation": "910GPURLEYO",
+        "displayName": "Alternative Route",
+        "displayOrder": 0,
+        "routeDescription": "Avoiding Zone 1 via Canada Water",
+        "validatorInformation": "Canada Water",
+        "specialFare": false,
+        "throughFare": false,
+        "isTour": false,
+        "ticketsAvailable": [
+          {
+            "$type": "Tfl.Api.Presentation.Entities.Fares.Ticket, Tfl.Api.Presentation.Entities",
+            "passengerType": "Adult",
+            "ticketType": {
+              "$type": "Tfl.Api.Presentation.Entities.Fares.TicketType, Tfl.Api.Presentation.Entities",
+              "type": "Pay as you go",
+              "description": "Pay as you go"
+            },
+            "ticketTime": {
+              "$type": "Tfl.Api.Presentation.Entities.Fares.TicketTime, Tfl.Api.Presentation.Entities",
+              "type": "Off Peak",
+              "description": "At all other times including public holidays."
+            },
+            "cost": "3.10",
+            "description": "Pay as you go",
+            "mode": "national-rail",
+            "displayOrder": 1,
+            "messages": []
+          },
+          {
+            "$type": "Tfl.Api.Presentation.Entities.Fares.Ticket, Tfl.Api.Presentation.Entities",
+            "passengerType": "Adult",
+            "ticketType": {
+              "$type": "Tfl.Api.Presentation.Entities.Fares.TicketType, Tfl.Api.Presentation.Entities",
+              "type": "Pay as you go",
+              "description": "Pay as you go"
+            },
+            "ticketTime": {
+              "$type": "Tfl.Api.Presentation.Entities.Fares.TicketTime, Tfl.Api.Presentation.Entities",
+              "type": "Peak",
+              "description": "Monday to Friday from 0630 to 0930 and from 1600 to 1900."
+            },
+            "cost": "4.50",
+            "description": "Pay as you go",
+            "mode": "national-rail",
+            "displayOrder": 2,
+            "messages": []
+          }
+        ],
+        "messages": []
+      }
+    ],
+    "messages": []
+  }
+]
