@@ -1,4 +1,4 @@
-module go-tflapi
+module github.com/jdheyburn/go-tflapi
 
 go 1.14
 
