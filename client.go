@@ -63,7 +63,7 @@ type Api interface {
 	SearchStopPointsWithModes(string, []string) (*[]EntityMatchedStop, error)
 	GetStopPointForID(string) (*StopPointAPIResponse, error)
 	GetJourneyPlannerItinerary(JourneyPlannerQuery) (*JourneyPlannerItineraryResult, error)
-	SingleFareFinder(SingleFareFinderInput) (*FaresSection, error)
+	SingleFareFinder(SingleFareFinderInput) (*[]FaresSection, error)
 }
 
 // Client holds information necessary to make a request to your API
